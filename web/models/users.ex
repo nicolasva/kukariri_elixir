@@ -13,6 +13,9 @@ defmodule Users do
   def changeset(user, params \\ nil) do
     params
     |> validate_format(:email, ~r/@/)
+    |> validate_length(:email, 1..100)
+    |> validate_length(:username, 1..100)
+    |> validate_length(:encrypted_password, 1..100)
     |> validate_unique(:email, Repo)
   end
 end

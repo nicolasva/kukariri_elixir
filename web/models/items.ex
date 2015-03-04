@@ -7,4 +7,9 @@ defmodule Items do
     field :created_at, :datetime, default: Ecto.DateTime.local
     field :updated_at, :datetime, default: Ecto.DateTime.local
   end
+
+  def changeset(items, params \\ nil) do
+    params
+    |> validate_length(:title, 1..100)
+  end
 end
