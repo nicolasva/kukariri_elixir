@@ -5,9 +5,9 @@ defmodule Kukariri.Repo.Migrations.InitialUsersCreate do
     """
       CREATE TABLE users(
         id serial primary key,
-        email varchar(255),
-        username varchar(255),
-        encrypted_password varchar(255),
+        email varchar(255) not null,
+        username varchar(255) not null,
+        encrypted_password varchar(255) not null,
         created_at timestamp,
         updated_at timestamp
       )
