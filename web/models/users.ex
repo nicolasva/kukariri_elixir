@@ -6,6 +6,7 @@ defmodule Users do
     field :username, :string
     field :encrypted_password, :string
     has_many :items, Item
+    has_many :contacts, Contact
     field :created_at, :datetime, default: Ecto.DateTime.local
     field :updated_at, :datetime, default: Ecto.DateTime.local
   end
