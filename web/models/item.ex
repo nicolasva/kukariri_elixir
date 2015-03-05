@@ -1,4 +1,4 @@
-defmodule Items do
+defmodule Item do
   use Ecto.Model
 
   schema "items" do

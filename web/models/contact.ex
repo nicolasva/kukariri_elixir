@@ -1,4 +1,4 @@
-defmodule Contacts do
+defmodule Contact do
   use Ecto.Model
 
   schema "contacts" do
