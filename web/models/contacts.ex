@@ -15,11 +15,4 @@ defmodule Contacts do
     field :region, :string
   end
 
-   def changeset(user, params \\ nil) do
-    params
-      |> validate_format(:email, ~r/@/)
-      |> validate_length(:lastname, 1..100)
-      |> validate_length(:firstname, 1..100)
-      |> validate_length(:country, 1..100)
-   end
 end

@@ -6,7 +6,7 @@ defmodule Kukariri.Repo.Migrations.InitialItemsCreate do
       CREATE TABLE items(
         id serial primary key,
         title varchar(255) not null,
-        user_id integer not null
+        user_id integer not null references users
       )
     """ 
   end
