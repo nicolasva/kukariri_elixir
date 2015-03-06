@@ -22,12 +22,12 @@ defmodule Kukariri.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.9.0"},
+    [{:phoenix, nil, [git: "git://github.com/phoenixframework/phoenix.git"]},
      {:cowboy, "~> 1.0"},
      {:postgrex, "~> 0.6.0"},
      {:ecto, "~> 0.2.5"},
      {:sass_elixir, "~> 0.0.1"},
-     {:phoenix_haml, "~> 0.0.4"}
+     {:phoenix_haml, github: "chrismccord/phoenix_haml"}
     ]
   end
 end

@@ -1,4 +1,4 @@
-defmodule Kukariri.Endpoint do
+defmodule Kukariri.Endpoint do 
   use Phoenix.Endpoint, otp_app: :kukariri
 
   # Serve at "/" the given assets from "priv/static" directory
