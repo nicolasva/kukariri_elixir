@@ -1,4 +1,4 @@
-defmodule Picture do
+defmodule Kukariri.Picture do
   use Ecto.Model
 
   schema "pictures" do

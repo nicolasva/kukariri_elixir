@@ -1,4 +1,4 @@
-defmodule Contact do
+defmodule Kukariri.Contact do
   use Ecto.Model
 
   schema "contacts" do

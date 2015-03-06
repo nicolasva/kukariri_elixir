@@ -1,4 +1,4 @@
-defmodule User do
+defmodule Kukariri.User do
   use Ecto.Model
 
   schema "users" do

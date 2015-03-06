@@ -1,4 +1,4 @@
-defmodule Friend do
+defmodule Kukariri.Friend do
   use Ecto.Model
 
   schema "friends" do

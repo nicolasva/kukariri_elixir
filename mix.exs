@@ -25,7 +25,9 @@ defmodule Kukariri.Mixfile do
     [{:phoenix, "~> 0.9.0"},
      {:cowboy, "~> 1.0"},
      {:postgrex, "~> 0.6.0"},
-     {:ecto, "~> 0.2.5"}
+     {:ecto, "~> 0.2.5"},
+     {:sass_elixir, "~> 0.0.1"},
+     {:phoenix_haml, "~> 0.0.4"}
     ]
   end
 end

@@ -1,4 +1,4 @@
-defmodule Type do
+defmodule Kukariri.Type do
   use Ecto.Model
 
   schema "types" do

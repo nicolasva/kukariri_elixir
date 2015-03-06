@@ -1,4 +1,4 @@
-defmodule Item do
+defmodule Kukariri.Item do
   use Ecto.Model
 
   schema "items" do

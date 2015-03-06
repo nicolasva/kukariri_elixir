@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title Kukariri
+    %link{:rel=>:stylesheet, :href=>"/css/application.css"}
+  %body
+    .container
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a{:href => "http://www.phoenixframework.org/docs"} Get Started
+
+        %span.logo
+          = "Kukariri"
+      = @inner
+
+      .footer
+        %p
+          %a{:href=>"http://phoenixframework.org"}
+            = "phoenixframework.org"

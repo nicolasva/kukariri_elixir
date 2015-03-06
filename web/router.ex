@@ -15,7 +15,8 @@ defmodule Kukariri.Router do
   scope "/", Kukariri do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", UsersController, :new, as: :user
+    get "/pages", PageController, :index, as: :pages
   end
 
   # Other scopes may use custom stacks.

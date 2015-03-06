@@ -1,4 +1,4 @@
-defmodule ProvidedDate do
+defmodule Kukariri.ProvidedDate do
   use Ecto.Model
 
   schema "provided_dates" do
