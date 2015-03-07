@@ -1,21 +1,21 @@
 defmodule Kukariri.Router do
   use Phoenix.Router
 
-  pipeline :browser do
-    plug :accepts, ~w(html)
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-  end
+  #pipeline :browser do
+  #  plug :accepts, ~w(html)
+  #  plug :fetch_session
+  #  plug :fetch_flash
+  #  plug :protect_from_forgery
+  #end
 
-  pipeline :api do
-    plug :accepts, ~w(json)
-  end
+  #pipeline :api do
+  #  plug :accepts, ~w(json)
+  #end
 
   scope "/", Kukariri do
-    pipe_through :browser # Use the default browser stack
+    #pipe_through :browser # Use the default browser stack
 
-    get "/", UsersController, :new, as: :user
+    get "/", UsersController, :new, as: :users
     get "/pages", PageController, :index, as: :pages
   end
 

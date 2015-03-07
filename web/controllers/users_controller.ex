@@ -1,10 +1,11 @@
 defmodule Kukariri.UsersController do
   use Phoenix.Controller
   alias Kukariri.Router
-  alias Kukariri.Controller.Flash
+
+  plug :action
 
   def new(conn, _params) do
-    render conn, "new"
+    render conn, "new.html"
   end
 
   def create(conn, params) do
