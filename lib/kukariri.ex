@@ -7,6 +7,7 @@ defmodule Kukariri do
     import Supervisor.Spec, warn: false
 
     children = [
+      worker(Kukariri.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Kukariri.Endpoint, []),
       # Here you could define other workers and supervisors as children

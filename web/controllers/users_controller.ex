@@ -8,7 +8,7 @@ defmodule Kukariri.UsersController do
   end
 
   def create(conn, params) do
-    user = %Kukariri.User{username: params["username"], encrypted_password: params["encrypted_password"], email: params["email"], encrypted_password: Crypto.md5(params["encrypted_password"])}
+    user = %Kukariri.User{username: params["username"], encrypted_password: Crypto.md5(params["encrypted_password"]), email: params["email"]}
     Kukariri.Repo.insert(user)
 
     redirect conn, Router.pages_path(:index)
