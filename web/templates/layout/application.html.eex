@@ -7,15 +7,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
-    <link rel="stylesheet" href="/css/application.css">
+    <title>Kukariri</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/phoenix/phoenix.css">
   </head>
 
   <body>
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <li><a href="http://www.phoenixframework.org/docs">Disclamer</a></li>
         </ul>
         <span class="logo"></span>
       </div>
@@ -23,7 +24,7 @@
       <%= @inner %>
 
       <div class="footer">
-        <p><a href="http://phoenixframework.org">phoenixframework.org</a></p>
+        <p>Kukariri</p>
       </div>
 
     </div> <!-- /container -->

@@ -1,12 +1,16 @@
-<h1>New User</h1>
+<h1>Nouvelle utilisateur</h1>
 <form class="form-horizontal" action="/users" method="POST">
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-6"><input class="form-control" placeholder="yourname@email.com" name="username" type="email" required="required"></div>
+    <div class="col-sm-6"><input class="form-control" placeholder="yourname@email.com" name="email" type="email" required="required"></div>
+  </div>
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-6"><input name="username" class="form-control" type="text"></div>
   </div>
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-6"><input name="password" class="form-control" type="password"></div>
+    <div class="col-sm-6"><input name="encrypted_password" class="form-control" type="password"></div>
   </div>
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Confirm Password</label>
@@ -14,7 +18,8 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-warning" type="submit">Save</button>
+      <button class="btn btn-warning" type="submit">S'enregistrer</button> ou
+      <a href="/logins/new">Se connecter</a>
     </div>
   </div>
 </form>
