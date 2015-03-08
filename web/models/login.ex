@@ -7,6 +7,6 @@ defmodule Kukariri.Login do
       where: user.email == ^email,
       where: user.encrypted_password == ^password,
       select: user
-    Kukariri.Repo.all(query)
+    Kukariri.Repo.all(query) |> List.first
   end
 end

@@ -5,6 +5,10 @@ config :kukariri, Kukariri.Endpoint,
   http: [port: System.get_env("PORT")],
   secret_key_base: "HnCEtLCJnUDRbWFxeU2dl7svuD82WVtCDAZD9JQaX9UPPxyg7AfkpMo367s4Rfvz"
   
+config :phoenix, Kukariri.Router,
+  session: [store: :session,
+            key: "D&QUM&0=)&1O#PP!Z%T_*D(Z16)Z!#R!Q71L5XEYP1FJV$(IOU@NTJ+W+)2W(IIB@HBWTF%DR4("]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
