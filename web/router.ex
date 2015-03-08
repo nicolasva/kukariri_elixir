@@ -13,7 +13,7 @@ defmodule Kukariri.Router do
   end
 
   scope "/", Kukariri do
-    pipe_through :browser # Use the default browser stack
+    #pipe_through :browser # Use the default browser stack
 
     get "/", UsersController, :new, as: :users
     post "/users", UsersController, :create, as: :users

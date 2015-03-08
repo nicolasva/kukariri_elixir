@@ -10,16 +10,15 @@ defmodule Kukariri.LoginsController do
   end
 
   def create(conn, params) do
-    user = Kukariri.login.login?(params["email"], params["password"])
+    user = Kukariri.Login.login?(params["email"], params["password"])
     if user == nil do
       conn
-      |> Flash.put(:notice, "Username and or password was wrong")
       |> render "new"
     else
-      conn
-      |> Flash.put(:notice, "Login succees.")
-      |> put_session(:email, params["email"])
-      |> redirect Router.pages_path(:index)
+      conn = fetch_session(conn)
+      put_session(conn, :email, params["email"])
+      foo = get_session(conn, :email)
+      redirect conn, Router.pages_path(:index)
     end
   end
 

@@ -15,9 +15,6 @@
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Disclamer</a></li>
-        </ul>
         <span class="logo"></span>
       </div>
 

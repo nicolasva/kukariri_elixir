@@ -5,7 +5,7 @@
   </div>
 <% end %>
 
-<form class="form-horizontal" action="/logins" method="POST">
+<form class="form-horizontal" action="/logins" method="post">
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-6">

@@ -3,10 +3,10 @@ defmodule Kukariri.Login do
   alias Kukariri.User
 
   def login?(email, password) do 
-    query = from user in Users,
+    query = from user in User,
       where: user.email == ^email,
-      where: user.password == ^password,
+      where: user.encrypted_password == ^password,
       select: user
-    Repo.all(query) |> List.first
+    Kukariri.Repo.all(query)
   end
 end
