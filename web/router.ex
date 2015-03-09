@@ -21,6 +21,7 @@ defmodule Kukariri.Router do
     post "/logins", LoginsController, :create, as: :logins
     get "/pages", PageController, :index, as: :pages
     get "/items", ItemsController, :index, as: :items
+    get "/items/:id", ItemsController, :show, as: :items
   end
 
   # Other scopes may use custom stacks.

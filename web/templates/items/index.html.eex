@@ -1,0 +1,17 @@
+<div class="row">
+  <ul class="list-unstyled" style="">
+    <%= for item <- @items do %>
+      <li class="iem-list">
+        <div class="row">
+          <div class="col-md-9">
+            <a href='<%= Kukariri.Router.items_path(:show, item.title) %>'><%= item.title %></a>
+          </div>
+          <div class="col-md-3"> 
+            <span class='label label-success'>Prêté</span>
+            <span class='label label-default'>Disponible pour prêt</span>
+          </div>
+        </div> 
+      </li>
+    <% end %>
+  </ul>
+</div>

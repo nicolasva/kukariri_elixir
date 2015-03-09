@@ -16,10 +16,11 @@ defmodule Kukariri.LoginsController do
       |> render "new"
     else
       conn = fetch_session(conn)
-      conn = put_session(conn, :user_id, user.id)
-      conn = put_session(conn, :email, user.email)
-      conn = put_session(conn, :username, user.username)
-      redirect conn, Router.items_path(:index)
+      #conn = put_session(conn, :user_id, user.id)
+      #conn = put_session(conn, :email, user.email)
+      #conn = put_session(conn, :username, user.username) 
+      conn = put_session(conn, :user, user)
+      redirect conn, to: "/items" 
     end
   end
 
