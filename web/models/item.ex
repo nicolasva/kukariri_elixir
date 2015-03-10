@@ -1,10 +1,10 @@
 defmodule Kukariri.Item do
   use Ecto.Model
-  validate item, name: present()
 
   schema "items" do
     field :title, :string
     belongs_to :user, User
+    has_many :pictures, Picture
     has_many :types, Type
     has_many :provided_dates, ProvidedDate
     field :created_at, :datetime, default: Ecto.DateTime.local
