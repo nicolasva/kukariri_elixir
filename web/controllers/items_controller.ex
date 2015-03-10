@@ -31,8 +31,14 @@ defmodule Kukariri.ItemsController do
    item = Kukariri.Queries.item(id)
    render conn, "show", item: item
   end
+  
+  def destroy(conn, %{"id" => id}) do
+    item = Kukariri.Queries.item(id)
+    Kukariri.Repo.delete(item) 
+    redirect conn, to: "/items"
+  end
 
-  def atomize_keys(struct) do
+  defp atomize_keys(struct) do
     Enum.reduce struct, %{}, fn({k, v}, map) -> Map.put(map, String.to_atom(k), v) end
   end
 

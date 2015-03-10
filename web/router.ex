@@ -20,10 +20,13 @@ defmodule Kukariri.Router do
     get "/logins/new", LoginsController, :new, as: :logins
     post "/logins", LoginsController, :create, as: :logins
     get "/pages", PageController, :index, as: :pages  
-    get "/items/new", ItemsController, :new, as: :items  
+    get "/items/new", ItemsController, :new, as: :items   
+    delete "/items/:id", ItemsController, :destroy, as: :items 
+    get "/items/:id/destroy", ItemsController, :destroy, as: :items
     post "/items", ItemsController, :create, as: :items 
     get "/items", ItemsController, :index, as: :items
     get "/items/:id", ItemsController, :show, as: :items
+    get "/items/:id/edit", ItemsController, :edit, as: :items
   end
 
   # Other scopes may use custom stacks.

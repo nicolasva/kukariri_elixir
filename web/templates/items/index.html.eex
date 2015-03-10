@@ -3,12 +3,14 @@
     <%= for item <- @items do %>
       <li class="iem-list">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-7">
             <a href='show/<%= item.title %>'><%= item.title %></a>
           </div>
-          <div class="col-md-3"> 
+          <div class="col-md-5"> 
             <span class='label label-success'>Prêté</span>
             <span class='label label-default'>Disponible pour prêt</span>
+            <a href='/items/<%= item.title %>/edit' class='btn btn-primary btn-xs'>Editer</a>
+            <a href="/items/<%= item.title %>/destroy" method="DELETE" data-confirm='Es-tu sure dde vouloir supprimer cette objet ?' class='btn btn-xs btn-danger'>Supprimer</a>
           </div>
         </div> 
       </li>
