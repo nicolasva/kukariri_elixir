@@ -4,7 +4,7 @@
       <li class="iem-list">
         <div class="row">
           <div class="col-md-9">
-            <a href='<%= Kukariri.Router.items_path(:show, item.title) %>'><%= item.title %></a>
+            <a href='show/<%= item.title %>'><%= item.title %></a>
           </div>
           <div class="col-md-3"> 
             <span class='label label-success'>Prêté</span>
@@ -14,4 +14,7 @@
       </li>
     <% end %>
   </ul>
+</div>
+<div class="row text-center">
+  <a href="/items/new" class="btn btn-primary">Enregistrer un nouvelle objet à prêter</a>
 </div>

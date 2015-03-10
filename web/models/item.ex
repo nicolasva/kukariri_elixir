@@ -1,5 +1,6 @@
 defmodule Kukariri.Item do
   use Ecto.Model
+  validate item, name: present()
 
   schema "items" do
     field :title, :string
