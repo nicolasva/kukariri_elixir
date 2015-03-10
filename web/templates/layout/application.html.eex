@@ -9,6 +9,8 @@
 
     <title>Kukariri</title>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/style.css">
+    <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload.css">
     <link rel="stylesheet" href="/css/phoenix/phoenix.css">
   </head>
 
