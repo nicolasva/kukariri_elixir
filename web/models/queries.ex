@@ -4,8 +4,9 @@ defmodule Kukariri.Queries do
   alias Kukariri.Item
 
   def item(id) do
+    id = String.to_integer(id)
     query = from item in Item,
-            where: item.title == ^id,
+            where: item.id == ^id,
             select: item
     Kukariri.Repo.all(query) |> List.first
   end
