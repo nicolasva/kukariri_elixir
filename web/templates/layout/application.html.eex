@@ -9,8 +9,17 @@
 
     <title>Kukariri</title>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/style.css">
+    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/style.css"> 
+    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/blueimp-gallery.min.css">
     <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload-ui.css">
+    <noscript>
+      <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload-noscript.css">
+    </noscript>
+
+    <noscript>
+      <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload-ui-noscript.css">
+    </noscript>
     <link rel="stylesheet" href="/css/phoenix/phoenix.css">
   </head>
 
