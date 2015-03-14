@@ -1,5 +1,5 @@
 <h1>Nouvelle objet a prêté</h1>
-<form class="form-horizontal" action="/items" method="POST" enctype="multipart/form-data">
+<form id="item" class="form-horizontal" action="/items" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Nom de l'objet</label>
     <div class="col-sm-6">
@@ -14,7 +14,7 @@
       <span class="btn btn-success fileinput-button">
         <i class="glyphicon glyphicon-plus"></i>
         <span>Ajouter des fichiers etc...</span>
-        <input type="file" name="files[]" multiple>
+        <input type="file" name="files" multiple>
       </span>
 
       <button type="submit" class="btn btn-primary start">

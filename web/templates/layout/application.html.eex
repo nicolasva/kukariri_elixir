@@ -9,8 +9,8 @@
 
     <title>Kukariri</title>
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/style.css"> 
-    <link rel="stylesheet" href="/css/vendors/jquery_file_uploap/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="/css/vendors/jquery_file_upload/style.css"> 
+    <link rel="stylesheet" href="/css/vendors/jquery_file_upload/blueimp-gallery.min.css">
     <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload.css">
     <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload-ui.css">
     <noscript>
@@ -38,15 +38,19 @@
     </div> <!-- /container -->
     <script src="/js/vendors/jquery/jquery-2.1.3.min.js"></script>
     <script src="/js/vendors/jquery_file_upload/widget_jquery/jquery.ui.widget.js"></script>
+    <script src="/js/vendors/jquery_file_upload/Javascript-Templates/tmpl.min.js"></script>
     <script src="/js/vendors/jquery_file_upload/JavaScript-Load-Image/load-image.all.min.js"></script>
     <script src="/js/vendors/jquery_file_upload/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/js/jquery_file_upload/jquery.iframe-transport.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload-process.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload-image.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload-audio.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload-video.js"></script>
-    <script src="/js/jquery_file_upload/jquery.fileupload-validate.js"></script>
+    <script src="/js/vendors/jquery_file_upload/javascript-Blueimp-Gallery/jquery.blueimp-gallery.min.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.iframe-transport.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-process.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-image.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-audio.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-video.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-validate.js"></script>
+    <script src="/js/vendors/jquery_file_upload/jquery.fileupload-ui.js"></script>
+    <script src="/js/front/items/jquery_file_upload.js"></script>
   </body>
 </html>

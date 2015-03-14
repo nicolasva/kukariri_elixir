@@ -27,6 +27,9 @@ defmodule Kukariri.Mixfile do
      {:postgrex, "~> 0.6.0"},
      {:ecto, "~> 0.2.5"},
      {:sass_elixir, "~> 0.0.1"},
+     {:inflex, "~> 1.0.0"},
+     {:plug, "~> 0.7"},
+     {:mogrify, "~> 0.1"}
     ]
   end
 end

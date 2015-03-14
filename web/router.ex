@@ -19,7 +19,8 @@ defmodule Kukariri.Router do
     post "/users", UsersController, :create, as: :users
     get "/logins/new", LoginsController, :new, as: :logins
     post "/logins", LoginsController, :create, as: :logins
-    get "/pages", PageController, :index, as: :pages  
+    post "/pictures", PicturesController, :create, as: :pictures
+    get "/pages", PageController, :index, as: :pages
     get "/items/new", ItemsController, :new, as: :items   
     delete "/items/:id", ItemsController, :destroy, as: :items 
     get "/items/:id/destroy", ItemsController, :destroy, as: :items
