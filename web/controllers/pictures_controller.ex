@@ -5,37 +5,22 @@ defmodule Kukariri.PicturesController do
   plug :action
 
   def create(conn, params) do
-    IO.puts "-=-=-=-=-=-=-=-=-=-=-VANDENBOGAERDE Nicolas-=-=-=-=-=-=-=-=-"
-    image = params["files"]
-    image_filename = to_char_list(image.filename)
-    image_content_type = to_char_list(image.content_type)
-    image_path = to_char_list(image.path)
+    Enum.each(params["files"], fn(image) -> 
+      image_filename = to_char_list(image.filename) 
+      image_file_name_to_save = file_name_for_save(to_string(image_filename))
+      image_content_type = to_string(to_char_list(image.content_type))
+      image_path = to_string(to_char_list(image.path))
+      picture = %Kukariri.Picture{picture_content_type: image_content_type, picture_file_name: to_string(image_file_name_to_save)}
+      picture = Kukariri.Repo.insert(picture)
     
-    picture = %Kukariri.Picture{picture_file_name: image_filename}
-    picture = Kukariri.Repo.insert(picture)
- 
-    picture = UpPlug.process_upload_plug(%UpPlug{
-      model: picture,
-      plug: %Plug.Upload{
-        filename: image_filename,
-        path: image_path,
-        content_type: "image/png"
-      },
-      attribute_name: :photo,
-      styles: %{
-        thumb: "50x50>",
-        medium: "120x120>"
-      }
-    })
+      File.cp_r "#{image_path}", "/Users/nicolasvandenbogaerde/elixir_erlang/kukariri/priv/static/images/img_items/#{image_file_name_to_save}"
+      json conn, %{files: [%{thumbnailUrl: "/images/img_items/#{picture.picture_file_name}", type: picture.picture_content_type, size: 174035, deleteUrl: "/images/img_items/#{picture.picture_file_name}", deleteType: "DELETE",  url: "/images/img_items/#{picture.picture_file_name}", picture_file_name: picture.picture_file_name}]}
+    end
+    )
+  end
 
-    picture= Map.delete(picture, :picture)
-    Kukariri.Repo.update(picture)
-    #IO.puts image_url
-    #atomized_keys_params = atomize_keys(params)
-    #IO.puts "-=--=-=-=-=-=-=-#{atomized_keys_params}=-=-=-=-=-=-=-=-=-"
-    #IO.puts picture
-    #upload_picture_attachment(picture, atomize_keys(params), :picture)
-    text conn, "test nicolas"
+  defp file_name_for_save(file_name) do
+    Regex.replace(~r/[&$+,\/:;=?@<>\[\]\{\}\|\\\^~%# ]/, file_name, "_")
   end
 
   def upload_picture_attachment(picture, params, attachment_attribute_name
