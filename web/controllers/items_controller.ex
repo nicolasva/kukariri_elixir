@@ -32,6 +32,14 @@ defmodule Kukariri.ItemsController do
     render conn, "edit.html", item: item
   end
 
+  def update(conn, params) do 
+    item = Kukariri.Repo.get Kukariri.Item, String.to_integer(params["id"])
+    atomized_keys_params = atomize_keys(params)
+    item = Map.merge(item, atomized_keys_params)
+    Kukariri.Repo.update(item)
+    redirect conn, to: "/items"
+  end
+
   def show(conn, %{"id" => id}) do
    item = Kukariri.Queries.item(id)
    render conn, "show", item: item
