@@ -1,5 +1,5 @@
 <h1>Nouvelle objet a prêté</h1>
-<form id="item" class="form-horizontal" action="/items" method="POST" enctype="multipart/form-data">
+<form id="item" class="form-horizontal" action="/items" method="POST">
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Nom de l'objet</label>
     <div class="col-sm-6">

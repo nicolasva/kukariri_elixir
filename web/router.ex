@@ -26,7 +26,10 @@ defmodule Kukariri.Router do
     delete "/items/:item_id/pictures/:id", PicturesController, :destroy, as: :destroy
     get "/pages", PageController, :index, as: :pages
     get "/items/new", ItemsController, :new, as: :items
+    get "/items/:id/edit", ItemsController, :edit, as: :items
     delete "/items/:id", ItemsController, :destroy, as: :items
+    put "/items/:id", ItemsController, :update, as: :items
+    patch "/items/:id", ItemsController, :update, as: :items
     get "/items/:id/destroy", ItemsController, :destroy, as: :items
     post "/items", ItemsController, :create, as: :items 
     get "/items", ItemsController, :index, as: :items

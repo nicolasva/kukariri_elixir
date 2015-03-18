@@ -1,0 +1,14 @@
+<h1>Editer un objet prêté</h1>
+<form id="item" class="form-horizontal" action="/items/<%= @item.id %>" method="PUT">
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Nom de l'objet</label>
+    <div class="col-sm-6">
+      <input class="form-control" placeholder="Nom de l'objet" value="<%= @item.title %>" name="item[title]" type="text" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-warning" type="submit">Modifier le nom de cette objet</button>
+    </div>
+  </div>
+</form> 

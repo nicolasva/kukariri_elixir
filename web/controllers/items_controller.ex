@@ -27,6 +27,11 @@ defmodule Kukariri.ItemsController do
     render conn, "index.html", items: items
   end
 
+  def edit(conn, %{"id" => id}) do 
+    item = Kukariri.Repo.get Kukariri.Item, String.to_integer(id)
+    render conn, "edit.html", item: item
+  end
+
   def show(conn, %{"id" => id}) do
    item = Kukariri.Queries.item(id)
    render conn, "show", item: item
