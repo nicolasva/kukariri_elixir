@@ -11,6 +11,7 @@
             <span class='label label-default'>Disponible pour prêt</span>
             <a href='/items/<%= item.id %>/edit' class='btn btn-primary btn-xs'>Editer</a>
             <a href="/items/<%= item.id %>/destroy" method="DELETE" data-confirm='Es-tu sure dde vouloir supprimer cette objet ?' class='btn btn-xs btn-danger'>Supprimer</a>
+            <a href="/items/<%= item.id %>/pictures/new">Associer des photos à cette objet</a>
           </div>
         </div> 
       </li>

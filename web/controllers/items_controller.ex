@@ -15,7 +15,7 @@ defmodule Kukariri.ItemsController do
     item = Kukariri.Repo.insert(item)
     if is_nil(item) do
       render conn, "new.html", item: item
-    else  
+    else
       redirect conn, to: "/items"
     end
   end

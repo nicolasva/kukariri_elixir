@@ -4,13 +4,27 @@ defmodule Kukariri.PicturesController do
 
   plug :action
 
+  def index(conn, _params) do
+    item_id = _params["item_id"]
+    pictures = Kukariri.Queries.all_pictures_item(item_id)
+    json conn, %{pictures:  pictures}
+  end
+
+  def new(conn, _params) do
+    item_id = String.to_integer(_params["item_id"])
+    item = Kukariri.Repo.get Kukariri.Item, item_id 
+    pictures = Kukariri.Queries.all_pictures_item(_params["item_id"])
+    render conn, "new.html", item: item, pictures: pictures
+  end
+
   def create(conn, params) do
+    item_id = String.to_integer(params["item_id"])
     Enum.each(params["files"], fn(image) -> 
       image_filename = to_char_list(image.filename) 
       image_file_name_to_save = file_name_for_save(to_string(image_filename))
       image_content_type = to_string(to_char_list(image.content_type))
       image_path = to_string(to_char_list(image.path))
-      picture = %Kukariri.Picture{picture_content_type: image_content_type, picture_file_name: to_string(image_file_name_to_save)}
+      picture = %Kukariri.Picture{item_id: item_id, picture_content_type: image_content_type, picture_file_name: to_string(image_file_name_to_save)}
       picture = Kukariri.Repo.insert(picture)
     
       File.cp_r "#{image_path}", "/Users/nicolasvandenbogaerde/elixir_erlang/kukariri/priv/static/images/img_items/#{image_file_name_to_save}"
@@ -19,8 +33,10 @@ defmodule Kukariri.PicturesController do
     )
   end
 
-  defp file_name_for_save(file_name) do
-    Regex.replace(~r/[&$+,\/:;=?@<>\[\]\{\}\|\\\^~%# ]/, file_name, "_")
+  def destroy(conn, %{"id" => id}) do 
+    picture = Kukariri.Queries.picture(id)
+    Kukariri.Repo.delete(picture)
+    json conn, %{picture: true}
   end
 
   def upload_picture_attachment(picture, params, attachment_attribute_name
@@ -35,6 +51,10 @@ defmodule Kukariri.PicturesController do
       picture= Map.delete(picture, :picture)
       Kukariri.Repo.update(picture)
     end
+  end
+
+  defp file_name_for_save(file_name) do
+    Regex.replace(~r/[&$+,\/:;=?@<>\[\]\{\}\|\\\^~%# ]/, file_name, "_")
   end
 
   defp atomize_keys(struct) do
