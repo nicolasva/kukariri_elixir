@@ -53,5 +53,6 @@
     <script src="/js/vendors/jquery_file_upload/jquery.fileupload-validate.js"></script>
     <script src="/js/vendors/jquery_file_upload/jquery.fileupload-ui.js"></script>
     <script src="/js/front/items/jquery_file_upload.js"></script>
+    <script src="/js/front/pictures/pictures.js"></script>
   </body>
 </html>

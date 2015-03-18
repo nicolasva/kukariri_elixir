@@ -52,7 +52,7 @@
             <span class="size"></span>
           </td>
           <td>
-            <button class="btn btn-danger delete" data-url="/items/<%= picture.item_id %>/pictures/<%= picture.id %>" data-type="DELETE">
+            <button class="picture_delete btn btn-danger delete" data-url="/items/<%= picture.item_id %>/pictures/<%= picture.id %>" data-type="DELETE">
               <i class="glyphicon glyphicon-trash"></i>
               <span>Delete</span>
             </button>
