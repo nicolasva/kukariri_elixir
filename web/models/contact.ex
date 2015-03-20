@@ -9,9 +9,9 @@ defmodule Kukariri.Contact do
     field :tel_mobile, :string
     field :address, :string
     field :country, :string
-    belongs_to :user, User 
-    has_many :types, Type
-    has_many :provided_dates, ProvidedDate
+    belongs_to :user, Kukariri.User 
+    has_many :types, Kukariri.Type
+    has_many :provided_dates, Kukariri.ProvidedDate
     field :region, :string
   end
 

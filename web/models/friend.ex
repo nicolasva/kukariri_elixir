@@ -4,7 +4,7 @@ defmodule Kukariri.Friend do
   schema "friends" do
     field :follow, :boolean
     field :friend, :boolean
-    belongs_to :user, User
+    belongs_to :user, Kukariri.User
     #has_many :users, through: FriendUser
     field :accept_friend, :boolean 
   end

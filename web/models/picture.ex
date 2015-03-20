@@ -7,7 +7,7 @@ defmodule Kukariri.Picture do
     field :picture_file_size, :integer
     field :picture_updated_at, :datetime
     field :position, :integer
-    belongs_to :item, Item
+    belongs_to :item, Kukariri.Item
     belongs_to :type, Kukariri.Type
   end
 end

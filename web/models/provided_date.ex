@@ -5,7 +5,7 @@ defmodule Kukariri.ProvidedDate do
     field :date_at, :datetime
     field :date_to, :datetime
     field :date_to_activation, :boolean
-    belongs_to :contact, Contact
-    belongs_to :item, Item
+    belongs_to :contact, Kukariri.Contact
+    belongs_to :item, Kukariri.Item
   end
 end

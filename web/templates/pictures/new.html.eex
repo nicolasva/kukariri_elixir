@@ -45,7 +45,7 @@
             </p>
           </td>
           <td>
-            <span class="size"></span>
+            <%= picture.type.descriptif %>
           </td>
           <td>
             <button class="picture_delete btn btn-danger delete" data-url="/items/<%= picture.item_id %>/pictures/<%= picture.id %>" data-type="DELETE">
