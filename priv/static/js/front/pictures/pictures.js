@@ -1,11 +1,19 @@
 $(".picture_delete").click(function(event) {
-  item_id = $(event.target).attr("id").split("_")[0];
-  picture_id = $(event.target).attr("id").split("_")[1];
+  if (_.isUndefined($(event.target).attr("id"))) {
+    var event_target = $(event.target).parent().first();
+    var item_id = event_target.attr("id").split("_")[0];
+    var picture_id = event_target.attr("id").split("_")[1];
+  }
+  else {
+    var event_target = $(event.target);
+    var item_id = event_target.attr("id").split("_")[0];
+    var picture_id = event_target.attr("id").split("_")[1];
+  }
 
   $.ajax({
     method: "DELETE",
     url: "/items/"+item_id+"/pictures/"+picture_id,
   }).done(function( msg ) {
-    $(event.target).parent().parent().remove();
+    event_target.parent().parent().remove();
   });
 });

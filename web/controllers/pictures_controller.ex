@@ -39,7 +39,9 @@ defmodule Kukariri.PicturesController do
 
   def destroy(conn, %{"id" => id}) do 
     picture = Kukariri.Queries.picture(id)
+    type = Kukariri.Repo.get Kukariri.Type, picture.type_id
     Kukariri.Repo.delete(picture)
+    Kukariri.Repo.delete(type)
     json conn, %{picture: true}
   end
 
