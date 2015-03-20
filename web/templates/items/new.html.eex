@@ -7,8 +7,11 @@
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-warning" type="submit">Enregistrer cette objet</button>
+    <div class="col-lg-6">
+      <button class="btn btn-warning" type="submit" name="item[update]">Enregistrer cette objet</button>
+    </div>
+    <div class="col-lg-6">
+      <button class="btn btn-primary" type="submit" name="item[update_img]">sauver cette objet et associer des images à cette objet</button>
     </div>
   </div>
 </form>

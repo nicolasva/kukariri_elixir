@@ -16,7 +16,7 @@ defmodule Kukariri.ItemsController do
     if is_nil(item) do
       render conn, "new.html", item: item
     else
-      redirect conn, to: "/items"
+      redirect_items(params, item, conn)
     end
   end
 
@@ -36,7 +36,7 @@ defmodule Kukariri.ItemsController do
     item = Kukariri.Repo.get Kukariri.Item, String.to_integer(params["id"])
     item = %{item | title: params["item"]["title"]}
     Kukariri.Repo.update(item)
-    redirect conn, to: "/items"
+    redirect_items(params["item"], item, conn)
   end
 
   def show(conn, %{"id" => id}) do
@@ -52,6 +52,14 @@ defmodule Kukariri.ItemsController do
 
   defp atomize_keys(struct) do
     Enum.reduce struct, %{}, fn({k, v}, map) -> Map.put(map, String.to_atom(k), v) end
+  end
+
+  defp redirect_items(params, item, conn) do 
+    if is_nil(params["update_img"]) do
+      redirect conn, to: "/items"
+    else
+      redirect conn, to: "/items/#{item.id}/pictures/new"
+    end
   end
 
 end
