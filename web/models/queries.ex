@@ -24,7 +24,6 @@ defmodule Kukariri.Queries do
   def all_pictures_item(item_id) do
     item_id = String.to_integer(item_id)
     query = from picture in Picture,
-            #join: type in assoc(picture, :type),
             preload: [:type],
             where: picture.item_id == ^item_id,
             select: picture

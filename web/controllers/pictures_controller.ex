@@ -32,7 +32,7 @@ defmodule Kukariri.PicturesController do
       picture = Kukariri.Repo.insert(picture)
        
       File.cp_r "#{image_path}", "/Users/nicolasvandenbogaerde/elixir_erlang/kukariri/priv/static/images/img_items/#{image_file_name_to_save}"
-      json conn, %{files: [%{thumbnailUrl: "/images/img_items/#{picture.picture_file_name}", type: picture.picture_content_type, size: 174035, deleteUrl: "/images/img_items/#{picture.picture_file_name}", deleteType: "DELETE",  url: "/images/img_items/#{picture.picture_file_name}", picture_file_name: picture.picture_file_name}]}
+      json conn, %{files: [%{thumbnailUrl: "/images/img_items/#{picture.picture_file_name}", type: picture.picture_content_type, size: 174035, deleteUrl: "/images/img_items/#{picture.picture_file_name}", item_id: item_id, type_id: type.id, deleteType: "DELETE",  url: "/images/img_items/#{picture.picture_file_name}", picture_file_name: picture.picture_file_name}]}
     end
     )
   end
