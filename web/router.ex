@@ -28,6 +28,7 @@ defmodule Kukariri.Router do
     get "/items/new", ItemsController, :new, as: :items
     get "/items/:id/edit", ItemsController, :edit, as: :items
     delete "/items/:id", ItemsController, :destroy, as: :items
+    post "/items/:id/update", ItemsController, :update, as: :items
     put "/items/:id", ItemsController, :update, as: :items
     patch "/items/:id", ItemsController, :update, as: :items
     get "/items/:id/destroy", ItemsController, :destroy, as: :items

@@ -34,8 +34,7 @@ defmodule Kukariri.ItemsController do
 
   def update(conn, params) do 
     item = Kukariri.Repo.get Kukariri.Item, String.to_integer(params["id"])
-    atomized_keys_params = atomize_keys(params)
-    item = Map.merge(item, atomized_keys_params)
+    item = %{item | title: params["item"]["title"]}
     Kukariri.Repo.update(item)
     redirect conn, to: "/items"
   end

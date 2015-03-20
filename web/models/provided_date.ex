@@ -7,7 +7,5 @@ defmodule Kukariri.ProvidedDate do
     field :date_to_activation, :boolean
     belongs_to :contact, Contact
     belongs_to :item, Item
-    field :created_at, :datetime, default: Ecto.DateTime.local
-    field :updated_at, :datetime, default: Ecto.DateTime.local
   end
 end

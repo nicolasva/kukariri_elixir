@@ -77,8 +77,9 @@
         <span class="preview"></span>
       </td>
       <td>
-        <p class="name">{%=file.name%}</p>
-        <strong class="error text-danger"></strong>
+        <textarea name="picture[type][descriptif]">
+          Description du fichier
+        </textarea>
       </td>
       <td>
         <p class="size">Processing...</p>

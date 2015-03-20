@@ -10,15 +10,18 @@ config :kukariri, Kukariri.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "HnCEtLCJnUDRbWFxeU2dl7svuD82WVtCDAZD9JQaX9UPPxyg7AfkpMo367s4Rfvz",
   debug_errors: false,
-  pubsub: [adapter: Phoenix.PubSub.PG2],
+  pubsub: [adapter: Phoenix.PubSub.PG2]
   #pubsub: [name: Kukariri.PubSub, adapter: Phoenix.PubSub.PG2],
-  adapter: Ecto.Adapters.Postgres,
-  database: "kukariri",
-  hostname: "localhost"
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+config :kukariri, Kukariri.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "kukariri",
+  hostname: "localhost"
+
 import_config "#{Mix.env}.exs"

@@ -1,5 +1,5 @@
 <h1>Editer un objet prêté</h1>
-<form id="item" class="form-horizontal" action="/items/<%= @item.id %>" method="PUT">
+<form id="item" class="form-horizontal" action="/items/<%= @item.id %>/update" method="POST">
   <div class="form-group">
     <label for="" class="col-sm-2 control-label">Nom de l'objet</label>
     <div class="col-sm-6">

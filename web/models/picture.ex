@@ -8,8 +8,6 @@ defmodule Kukariri.Picture do
     field :picture_updated_at, :datetime
     field :position, :integer
     belongs_to :item, Item
-    belongs_to :type, Type
-    field :created_at, :datetime, default: Ecto.DateTime.local
-    field :updated_at, :datetime, default: Ecto.DateTime.local
+    belongs_to :type, Kukariri.Type
   end
 end

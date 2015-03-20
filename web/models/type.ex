@@ -3,9 +3,8 @@ defmodule Kukariri.Type do
 
   schema "types" do
     field :descriptif, :string
+    has_many :pictures, Kukariri.Picture
     belongs_to :item, Item
     belongs_to :contact, Contact
-    field :created_at, :datetime, default: Ecto.DateTime.local
-    field :updated_at, :datetime, default: Ecto.DateTime.local
   end
 end
