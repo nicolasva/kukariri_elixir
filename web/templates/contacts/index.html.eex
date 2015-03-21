@@ -1,0 +1,22 @@
+<h1>Séléctionner un de vos contacts</h1>
+<div class="row">
+  <ul class="list-unstyled">
+    <%= for contact <- @contacts do %> 
+      <li class="item-list">
+        <div class="row">
+          <div class="col-md-8">
+            <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/provided_dates/new'><%= contact.lastname %> <%= contact.firstname %></a>
+          </div>
+          <div class="col-md-4">
+            <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/edit' class='btn btn-primary btn-xs'>Editer</a>
+            <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/delete' class='btn btn-xs btn-danger'>Supprimer</a>
+            <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/provided_dates/new' class='btn btn-xs btn-success'>Lui prêter l'objet</a>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="row text-center">
+  <a href='/items/<%= @item_id %>/contacts/new' class='btn btn-primary'>Ajouter un nouveau contact</a>
+</div>

@@ -3,6 +3,7 @@ defmodule Kukariri.Queries do
   alias Kukariri.User
   alias Kukariri.Item
   alias Kukariri.Picture
+  alias Kukariri.Contact
 
   def item(id) do
     id = String.to_integer(id)
@@ -42,6 +43,13 @@ defmodule Kukariri.Queries do
     query = from item in Item,
       where: item.user_id == ^user_id,
       select: item
+    Kukariri.Repo.all(query)
+  end
+
+  def contacts_list(user_id) do 
+    query = from contact in Contact,
+      where: contact.user_id == ^user_id,
+      select: contact
     Kukariri.Repo.all(query)
   end
 end

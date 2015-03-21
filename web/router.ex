@@ -36,6 +36,16 @@ defmodule Kukariri.Router do
     get "/items", ItemsController, :index, as: :items
     get "/items/:id", ItemsController, :show, as: :items
     get "/items/:id/edit", ItemsController, :edit, as: :items
+    get "/items/:item_id/contacts", ContactsController, :index, as: :contacts
+    get "/items/:item_id/contacts/new", ContactsController, :new, as: :contacts 
+    post "/items/:item_id/contacts", ContactsController, :create, as: :contacts
+    get "/items/:item_id/contacts/:id/edit", ContactsController, :edit, as: :contacts
+    post "/items/:item_id/contacts/:id/update", ContactsController, :update, as: :contacts
+    put "/items/:item_id/contacts/:id", ContactsController, :update, as: :contacts
+    patch "/items/:item_id/contacts/:id", ContactsController, :update, as: :contacts
+    delete "/items/:item_id/contacts/:id", ContactsController, :destroy, as: :contacts
+    get "/items/:item_id/contacts/:id/delete", ContactsController, :destroy, as: :contacts
+    get "/items/:item_id/contacts/:contact_id/provided_dates/new", ProvidedDatesController, :new, as: :provided_dates
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,64 @@
+<h1>Edition d'un contact</h1>
+<form id="contact" class="form-horizontal" action="/items/<%= @item_id %>/contacts/<%= @contact.id %>/update" method="POST">
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Nom</label>
+    <div class="col-sm-6">
+      <input class="form-control" placeholder="Votre nom" name="contact[lastname]" type="text" value="<%= @contact.lastname %>" required="required">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Prénom</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="contact[firstname]" value="<%= @contact.firstname %>" required="required">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">E-mail</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="contact[email]" value="<%= @contact.email %>" required="required">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Téléphone</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" value="<%= @contact.tel_home %>" placeholder="Numéro de votre téléphone" name="contact[tel_home]">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Téléphone portable</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" value="<%= @contact.tel_mobile %>" placeholder="Numéro de votre téléphone portable" name="contact[tel_mobile]">
+    </div>
+  </div>
+
+  <div class="form-group"> 
+    <label for="" class="col-sm-2 control-label">Adresse</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" value="<%= @contact.address %>" placeholder="Votre adresse" name="contact[address]">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Pays</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" value="<%= @contact.country %>" placeholder="Votre pays" name="contact[country]">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Region</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" value="<%= @contact.region %>" placeholder="Votre régions" name="contact[region]">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="text-center col-sm-10">
+      <button class="btn btn-warning" type="submit" name="contact[submit_contact]">Modifier ce  contact</button>
+    </div>
+  </div>
+</form>
