@@ -1,0 +1,27 @@
+<h1>Ajouter une date pour le prêt de cette objet à ce contact</h1>
+<form id="provided_date" class="form-horizontal" action="/items/<%= @item_id %>/contacts/<%= @contact_id %>/provided_dates" method="POST">
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">De</label>
+    <div class="col-sm-6">
+      <input id="provided_date_date_at" class="form-control" placeholder="dd/mm/yyyy" name="provided_date[date_at]" type="text" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">A</label>
+    <div class="col-sm-6">
+      <input type="text" id="provided_date_date_to" class="form-control" placeholder="dd/mm/yyyy" name="provided_date[date_to]" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="" class="col-sm-2 control-label">Prêté ?</label>
+    <div class="col-sm-6">
+      <input type="checkbox" name="provided_date[date_to_activation]" class="form-control" value="1" checked="true">
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <div class="text-center col-sm-10">
+      <button class="btn btn-warning" type="submit" name="provided_date[submit_provided_date]">Enregistrer cette date de prêt</button>
+    </div>
+  </div>
+</form>

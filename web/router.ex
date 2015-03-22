@@ -46,6 +46,7 @@ defmodule Kukariri.Router do
     delete "/items/:item_id/contacts/:id", ContactsController, :destroy, as: :contacts
     get "/items/:item_id/contacts/:id/delete", ContactsController, :destroy, as: :contacts
     get "/items/:item_id/contacts/:contact_id/provided_dates/new", ProvidedDatesController, :new, as: :provided_dates
+    post "/items/:item_id/contacts/:contact_id/provided_dates", ProvidedDatesController, :create, as: :provided_dates
   end
 
   # Other scopes may use custom stacks.
