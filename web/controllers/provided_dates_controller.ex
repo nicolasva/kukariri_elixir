@@ -17,8 +17,7 @@ defmodule Kukariri.ProvidedDatesController do
     else
       date_to_activation = true
     end
-    Regex.split(~r/\//, "19/03/2014")
-    provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, contact_id: contact_id, item_id: item_id}
+    provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, contact_id: String.to_integer(contact_id), item_id: String.to_integer(item_id)}
     provided_date = Kukariri.Repo.insert(provided_date)
     redirect conn, to: "/items/#{item_id}/contacts"
   end
@@ -28,6 +27,9 @@ defmodule Kukariri.ProvidedDatesController do
     day = Enum.at(date_array, 0)
     month = Enum.at(date_array, 1)
     year = Enum.at(date_array, 2)
-    "#{year}-#{month}-#{day}"
+    IO.puts "-=-=-=-=-=-=-#{String.to_integer(month)}-=-=-=-=-=-=-=-=-=-=-" 
+    IO.puts "-=-=-=-=-=-=-#{String.to_integer(year)}-=-=-=-=-=-=-=-=-=-=-=" 
+    #{{2015, 2, 12}, {2, 0, 0, 0}}
+    {{String.to_integer(year), String.to_integer(month), String.to_integer(day)}, {0, 0, 0, 0}}
   end
 end
