@@ -27,9 +27,6 @@ defmodule Kukariri.ProvidedDatesController do
     day = Enum.at(date_array, 0)
     month = Enum.at(date_array, 1)
     year = Enum.at(date_array, 2)
-    IO.puts "-=-=-=-=-=-=-#{String.to_integer(month)}-=-=-=-=-=-=-=-=-=-=-" 
-    IO.puts "-=-=-=-=-=-=-#{String.to_integer(year)}-=-=-=-=-=-=-=-=-=-=-=" 
-    #{{2015, 2, 12}, {2, 0, 0, 0}}
     {{String.to_integer(year), String.to_integer(month), String.to_integer(day)}, {0, 0, 0, 0}}
   end
 end
