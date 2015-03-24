@@ -7,7 +7,6 @@
             <a href='show/<%= item.id %>'><%= item.title %></a>
           </div>
           <div class="col-md-9"> 
-            <span class='label label-success'>Prêté</span>
             <%= if disponibility?(item.id) do %>
               <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-success">Disponible pour prêt</a>
             <%= else %>
