@@ -8,7 +8,11 @@
           </div>
           <div class="col-md-9"> 
             <span class='label label-success'>Prêté</span>
-            <a href='/items/<%= item.id %>/contacts'>Disponible pour prêt</a>
+            <%= if disponibility?(item.id) do %>
+              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-success">Disponible pour prêt</a>
+            <%= else %>
+              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-warning">Prêté actuellement</a>
+            <% end %> 
             <a href='/items/<%= item.id %>/edit' class='btn btn-primary btn-xs'>Editer</a>
             <a href="/items/<%= item.id %>/destroy" method="DELETE" data-confirm='Es-tu sure dde vouloir supprimer cette objet ?' class='btn btn-xs btn-danger'>Supprimer</a>
             <a href="/items/<%= item.id %>/pictures/new" class='btn btn-info btn-xs'>Associer des photos à cette objet</a>

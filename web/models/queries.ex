@@ -4,12 +4,25 @@ defmodule Kukariri.Queries do
   alias Kukariri.Item
   alias Kukariri.Picture
   alias Kukariri.Contact
+  alias Kukariri.ProvidedDate
 
   def item(id) do
     id = String.to_integer(id)
     query = from item in Item,
             where: item.id == ^id,
             select: item
+    Kukariri.Repo.all(query) |> List.first
+  end
+
+  def picture_with_provided_date?(item_id) do
+    time_today = elem(Ecto.DateTime.dump(Ecto.DateTime.local()), 1)
+    query = from provided_date in ProvidedDate, 
+            where: provided_date.date_at < ^time_today,
+            where: provided_date.date_to > ^time_today, 
+            where: provided_date.item_id == ^item_id,
+            where: provided_date.date_to_activation == true, 
+            select: provided_date
+
     Kukariri.Repo.all(query) |> List.first
   end
 
@@ -42,6 +55,7 @@ defmodule Kukariri.Queries do
   def items_list(user_id) do
     query = from item in Item,
       where: item.user_id == ^user_id,
+      preload: [:provided_dates],
       select: item
     Kukariri.Repo.all(query)
   end

@@ -25,8 +25,7 @@ defmodule Kukariri.ContactsController do
     user = get_session(session, :user)
     contact = Map.merge(%Kukariri.Contact{user_id: user.id}, atomize_keys(params))
     contact = Kukariri.Repo.insert(contact)
-    redirect conn, to: "/items/#{item_id}/contacts" 
-    #redirect conn, to: '/items/#{params["item_id"]}/contacts/#{contact.id}/provided_dates/new'
+    redirect conn, to: "/items/#{item_id}/contacts/#{contact.id}/provided_dates/new"
   end
 
   def update(conn, params) do
@@ -36,8 +35,7 @@ defmodule Kukariri.ContactsController do
     contact = Kukariri.Repo.get Kukariri.Contact, String.to_integer(params["id"])
     contact = %{contact | user_id: user.id, lastname: params["contact"]["lastname"], firstname: params["contact"]["firstname"], email: params["contact"]["email"], tel_home: params["contact"]["tel_home"], tel_mobile: params["contact"]["tel_mobile"], address: params["contact"]["address"], country: params["contact"]["country"], region: params["contact"]["region"]}
     Kukariri.Repo.update(contact)
-    redirect conn, to: "/items/#{item_id}/contacts"
-    #redirect conn, to: '/items/#{params["item_id"]}/contacts/#{contact.id}/provided_dates/new'
+    redirect conn, to: "/items/#{item_id}/contacts/#{contact.id}/provided_dates/new"
   end
 
   def destroy(conn, %{"item_id" => item_id, "id" => id}) do
