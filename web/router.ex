@@ -13,7 +13,7 @@ defmodule Kukariri.Router do
   end
 
   scope "/", Kukariri do
-    #pipe_through :browser # Use the default browser stack
+    pipe_through :browser # Use the default browser stack
 
     get "/", UsersController, :new, as: :users
     post "/users", UsersController, :create, as: :users
@@ -47,6 +47,8 @@ defmodule Kukariri.Router do
     get "/items/:item_id/contacts/:id/delete", ContactsController, :destroy, as: :contacts
     get "/items/:item_id/contacts/:contact_id/provided_dates/new", ProvidedDatesController, :new, as: :provided_dates
     post "/items/:item_id/contacts/:contact_id/provided_dates", ProvidedDatesController, :create, as: :provided_dates
+    get "/items/:item_id/calendars", CalendarsController, :index, as: :calendars
+    get "/items/:item_id/provided_dates_list", CalendarsController, :provided_dates_list, as: :calendars
   end
 
   # Other scopes may use custom stacks.

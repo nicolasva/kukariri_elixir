@@ -1,4 +1,5 @@
 <h1>Séléctionner un de vos contacts</h1>
+<a href="/items/<%= @item_id %>/calendar">Calendrier récapitulatif des prêts pour cette objet</a>
 <div class="row">
   <ul class="list-unstyled">
     <%= for contact <- @contacts do %> 
