@@ -8,16 +8,9 @@ defmodule Kukariri.CalendarsView do
     array_provided_date
   end
 
-  #def render("provided_dates_list.json", provided_date: provided_date) do
-  #  provided_date
-  #  |> Map.take(:title, "test")
-  #end
 
   defp get_provided_dates(provided_dates) do 
     for provided_date <- provided_dates do
-      IO.puts "nicolas"
-      #render("provided_dates_list.json", provided_date: provided_date)
-      #array_provided_date = array_provided_date ++ register_hash(provided_date)
       register_hash(provided_date)
     end
   end
