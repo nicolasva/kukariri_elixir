@@ -35,9 +35,14 @@ defmodule Kukariri.ItemsController do
 
   def update(conn, params) do 
     item = Kukariri.Repo.get Kukariri.Item, String.to_integer(params["id"])
-    item = %{item | title: params["item"]["title"]}
-    Kukariri.Repo.update(item)
-    redirect_items(params["item"], item, conn)
+    changeset = Kukariri.Item.changeset(params["item"], :update, item)
+    if changeset.valid? do
+      item = %{item | title: params["item"]["title"]}
+      Kukariri.Repo.update(item)
+      redirect_items(params["item"], item, conn)
+    else
+      render conn, "edit.html", item: item, errors: changeset.errors
+    end
   end
 
   def show(conn, %{"id" => id}) do

@@ -18,6 +18,6 @@ defmodule Kukariri.Item do
   def changeset(params, :update, item) do
     item
     |> cast(params, [], ~w(title))
-    |> validate_unique(:title, on: Kukariri.Repo)
+    |> validate_length(:title, min: 1)
   end
 end
