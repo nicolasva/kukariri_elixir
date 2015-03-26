@@ -5,7 +5,7 @@ defmodule Kukariri.Router do
     plug :accepts, ~w(html)
     plug :fetch_session
     plug :fetch_flash
-    plug :protect_from_forgery
+    #plug :protect_from_forgery
   end
 
   pipeline :api do
@@ -48,7 +48,7 @@ defmodule Kukariri.Router do
     get "/items/:item_id/contacts/:contact_id/provided_dates/new", ProvidedDatesController, :new, as: :provided_dates
     post "/items/:item_id/contacts/:contact_id/provided_dates", ProvidedDatesController, :create, as: :provided_dates
     get "/items/:item_id/calendars", CalendarsController, :index, as: :calendars
-    get "/items/:item_id/provided_dates_list", CalendarsController, :provided_dates_list, as: :calendars
+    get "/items/:item_id/calendars/provided_dates_list", CalendarsController, :provided_dates_list, as: :calendars
   end
 
   # Other scopes may use custom stacks.

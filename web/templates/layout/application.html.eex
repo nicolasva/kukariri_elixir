@@ -43,6 +43,7 @@
     <script src="/js/vendors/jquery/jquery-2.1.3.min.js"></script>
     <script src="/js/vendors/jquery/jquery-ui.custom.min.js"></script>
     <script src="/js/vendors/jquery/jquery-ui.js"></script>
+    <script src="/js/vendors/rjust/rjust.js"></script>
     <script src="/js/vendors/scan/scan.js"></script>
     <script src="/js/vendors/jquery_file_upload/widget_jquery/jquery.ui.widget.js"></script>
     <script src="/js/vendors/jquery_file_upload/Javascript-Templates/tmpl.min.js"></script>
@@ -63,5 +64,6 @@
     <script src="/js/front/items/jquery_file_upload.js"></script>
     <script src="/js/front/pictures/pictures.js"></script>
     <script src="/js/front/provided_dates/new.js"></script>
+    <script src="/js/front/calendars/fullcalendar.js"></script>
   </body>
 </html>
