@@ -12,11 +12,12 @@ defmodule Kukariri.ItemsController do
     conn = fetch_session(conn)
     user = get_session(conn, :user)
     item = Map.merge(%Kukariri.Item{user_id: user.id}, atomize_keys(params)) 
-    item = Kukariri.Repo.insert(item)
-    if is_nil(item) do
-      render conn, "new.html", item: item
-    else
+    changeset = Kukariri.Item.changeset(params, :create)
+    if changeset.valid? do
+      item = Kukariri.Repo.insert(item)  
       redirect_items(params, item, conn)
+    else
+      render conn, "new.html", item: item
     end
   end
 

@@ -9,4 +9,15 @@ defmodule Kukariri.Item do
     has_many :provided_dates, Kukariri.ProvidedDate
   end
 
+  def changeset(params, :create) do
+    %Kukariri.Item{}
+    |> cast(params, ~w(title))
+    |> validate_unique(:title, on: Kukariri.Repo)
+  end
+
+  def changeset(params, :update, item) do
+    item
+    |> cast(params, [], ~w(title))
+    |> validate_unique(:title, on: Kukariri.Repo)
+  end
 end
