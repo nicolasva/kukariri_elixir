@@ -18,8 +18,13 @@ defmodule Kukariri.ProvidedDatesController do
       date_to_activation = true
     end
     provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, contact_id: String.to_integer(contact_id), item_id: String.to_integer(item_id)}
-    provided_date = Kukariri.Repo.insert(provided_date)
-    redirect conn, to: "/items/#{item_id}/contacts"
+    changeset = Kukariri.ProvidedDate.changeset(params, :create)
+    if changeset.valid? do
+      provided_date = Kukariri.Repo.insert(provided_date)
+      redirect conn, to: "/items/#{item_id}/contacts"
+    else
+      render conn, "new.html", provided_date: provided_date, errors: changeset.errors
+    end
   end
 
   defp format_date(date) do

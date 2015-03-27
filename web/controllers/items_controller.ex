@@ -8,7 +8,7 @@ defmodule Kukariri.ItemsController do
     render conn, "new.html"
   end
 
-  def create(conn, %{"item" => params}) do 
+  def create(conn, %{"item" => params}) do
     conn = fetch_session(conn)
     user = get_session(conn, :user)
     item = Map.merge(%Kukariri.Item{user_id: user.id}, atomize_keys(params)) 
@@ -17,7 +17,7 @@ defmodule Kukariri.ItemsController do
       item = Kukariri.Repo.insert(item)  
       redirect_items(params, item, conn)
     else
-      render conn, "new.html", item: item
+      render conn, "new.html", item: item, errors: changeset.errors
     end
   end
 

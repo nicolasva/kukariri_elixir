@@ -13,11 +13,13 @@ defmodule Kukariri.Item do
     %Kukariri.Item{}
     |> cast(params, ~w(title))
     |> validate_unique(:title, on: Kukariri.Repo)
+    |> validate_length(:title, min: 1)
   end
 
   def changeset(params, :update, item) do
     item
     |> cast(params, [], ~w(title))
     |> validate_length(:title, min: 1)
+    |> validate_unique(:title, on: Kukariri.Repo)
   end
 end
