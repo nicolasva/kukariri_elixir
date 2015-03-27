@@ -67,14 +67,23 @@ defmodule Kukariri.Queries do
     Kukariri.Repo.all(query)
   end
 
-  def provided_dates_list(item_id) do 
-    time_today = elem(Ecto.DateTime.dump(Ecto.DateTime.local()), 1)
+  def provided_dates_list(item_id, start, end_date) do
+    date_at_array =  
+    date_to_array = Regex.split(~r/-/, end_date)
+    date_at = {{String.to_integer(Enum.at(date_at_array, 0)), String.to_integer(Enum.at(date_at_array, 1)), String.to_integer(Enum.at(date_at_array, 2))}, {0, 0, 0, 0}}
+    date_to = {{String.to_integer(Enum.at(date_to_array, 0)), String.to_integer(Enum.at(date_to_array, 1)), String.to_integer(Enum.at(date_to_array, 2))}, {0, 0, 0, 0}}
+    #{{2015, 3, 23}, {23, 31, 35, 0}}
     item_id = String.to_integer(item_id)
     query = from provided_date in ProvidedDate,
       where: provided_date.item_id == ^item_id, 
-      where: provided_date.date_at < ^time_today,
-      where: provided_date.date_to > ^time_today, 
+      where: provided_date.date_at > ^date_calendar(start),
+      where: provided_date.date_to < ^date_calendar(end_date),
       select: provided_date
     Kukariri.Repo.all(query)
+  end
+
+  defp date_calendar(date) do 
+    date_array = Regex.split(~r/-/, date)
+    {{String.to_integer(Enum.at(date_array, 0)), String.to_integer(Enum.at(date_array, 1)), String.to_integer(Enum.at(date_array, 2))}, {0, 0, 0, 0}}
   end
 end
