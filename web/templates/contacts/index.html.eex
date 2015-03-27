@@ -11,7 +11,12 @@
           <div class="col-md-4">
             <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/edit' class='btn btn-primary btn-xs'>Editer</a>
             <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/delete' class='btn btn-xs btn-danger'>Supprimer</a>
-            <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/provided_dates/new' class='btn btn-xs btn-success'>Lui prêter l'objet</a>
+            <%= if lent_item?(@item_id) do %> 
+              <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/provided_dates/new' class='btn btn-xs btn-success'>Lui prêter l'objet</a>
+            <% end %>
+            <%= unless is_nil(lent_contact_item(contact.id, @item_id)) do %>
+              <a href='/items/<%= @item_id %>/contacts/<%= contact.id %>/provided_dates/<%= lent_contact_item(contact.id, @item_id).id %>/edit' class='btn btn-xs btn-warning'>Modifier le prêt</a> 
+            <% end %>
           </div>
         </div>
       </li>

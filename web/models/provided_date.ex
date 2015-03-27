@@ -18,8 +18,6 @@ defmodule Kukariri.ProvidedDate do
 
   def changeset(params, :update, provided_date) do
     provided_date
-    |> cast(params, [], ~w(date_at dat_to))
-    |> validate_length(:date_at, min: 10)
-    |> validate_length(:date_to, mon: 10)
+    |> cast(params, [], ~w(date_at date_to date_to_activation))
   end
 end

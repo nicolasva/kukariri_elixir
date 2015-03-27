@@ -12,7 +12,6 @@ defmodule Kukariri.Item do
   def changeset(params, :create) do
     %Kukariri.Item{}
     |> cast(params, ~w(title))
-    |> validate_unique(:title, on: Kukariri.Repo)
     |> validate_length(:title, min: 1)
   end
 
@@ -20,6 +19,5 @@ defmodule Kukariri.Item do
     item
     |> cast(params, [], ~w(title))
     |> validate_length(:title, min: 1)
-    |> validate_unique(:title, on: Kukariri.Repo)
   end
 end

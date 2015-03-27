@@ -14,13 +14,30 @@ defmodule Kukariri.Queries do
     Kukariri.Repo.all(query) |> List.first
   end
 
+  def lent_item?(item_id) do
+    is_nil(picture_with_provided_date?(item_id))
+  end
+
   def picture_with_provided_date?(item_id) do
+    #2015-03-18 00:00:00 | 2015-03-28 00:00:00
     time_today = elem(Ecto.DateTime.dump(Ecto.DateTime.local()), 1)
     query = from provided_date in ProvidedDate, 
             where: provided_date.date_at < ^time_today,
             where: provided_date.date_to > ^time_today, 
             where: provided_date.item_id == ^item_id,
             where: provided_date.date_to_activation == true, 
+            select: provided_date
+
+    Kukariri.Repo.all(query) |> List.first
+  end
+
+  def contact_provided_date_lent?(contact_id, item_id) do 
+    time_today = elem(Ecto.DateTime.dump(Ecto.DateTime.local()), 1)
+    query = from provided_date in ProvidedDate,
+            where: provided_date.date_at < ^time_today,
+            where: provided_date.date_to > ^time_today,
+            where: provided_date.item_id == ^item_id,
+            where: provided_date.contact_id == ^contact_id,
             select: provided_date
 
     Kukariri.Repo.all(query) |> List.first
