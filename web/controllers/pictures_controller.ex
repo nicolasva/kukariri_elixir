@@ -19,19 +19,15 @@ defmodule Kukariri.PicturesController do
 
   def create(conn, params) do
     item_id = String.to_integer(params["item_id"])
-    Enum.each(params["files"], fn(image) -> 
-      image_filename = to_char_list(image.filename) 
-      image_file_name_to_save = file_name_for_save(to_string(image_filename))
-      image_content_type = to_string(to_char_list(image.content_type))
-      image_path = to_string(to_char_list(image.path))
-      picture = %Kukariri.Picture{item_id: item_id, picture_content_type: image_content_type, picture_file_name: to_string(image_file_name_to_save), type: [descriptif: params["picture"]["type"]["descriptif"]]}
+    Enum.each(params["files"], fn(image) ->  
+      picture_upload = UploadFile.upload_img(image)
+      
+      picture = %Kukariri.Picture{item_id: item_id, picture_content_type: picture_upload.image_content_type, picture_file_name: picture_upload.image_filename, type: [descriptif: params["picture"]["type"]["descriptif"]]}
       type_description = elem(Enum.at(picture.type, 0),1)
       type = %Kukariri.Type{descriptif: type_description, item_id: item_id}
       type = Kukariri.Repo.insert(type) 
-      picture = %Kukariri.Picture{position: 0, type_id: type.id, item_id: item_id, picture_content_type: image_content_type, picture_file_name: to_string(image_file_name_to_save), type: [descriptif: params["picture"]["type"]["descriptif"]]}
+      picture = %Kukariri.Picture{position: 0, type_id: type.id, item_id: item_id, picture_content_type: picture_upload.image_content_type, picture_file_name: picture_upload.image_filename, type: [descriptif: params["picture"]["type"]["descriptif"]]}
       picture = Kukariri.Repo.insert(picture)
-       
-      File.cp_r "#{image_path}", "/Users/nicolasvandenbogaerde/elixir_erlang/kukariri/priv/static/images/img_items/#{image_file_name_to_save}"
       json conn, %{files: [%{thumbnailUrl: "/images/img_items/#{picture.picture_file_name}", type: picture.picture_content_type, size: 174035, deleteUrl: "/images/img_items/#{picture.picture_file_name}", item_id: item_id, type_id: type.id, deleteType: "DELETE",  url: "/images/img_items/#{picture.picture_file_name}", picture_file_name: picture.picture_file_name}]}
     end
     )
