@@ -6,6 +6,6 @@ defmodule Kukariri.ProvidedDatesView do
     year = elem(elem(date, 0), 0)
     month = elem(elem(date, 0), 1)
     day = elem(elem(date, 0), 2)
-    "#{year}/#{month}/#{day}"  
+    "#{day}/#{month}/#{year}"
   end
 end
