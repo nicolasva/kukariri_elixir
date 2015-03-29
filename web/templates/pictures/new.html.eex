@@ -60,7 +60,10 @@
   </table>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-warning" type="submit">Uploader ces images</button>
+      <button type="submit" class="btn btn-primary start">
+        <i class="glyphicon glyphicon-upload"></i>
+         <span> Envoyer l'image</span>
+      </buton>
     </div>
   </div>
 
