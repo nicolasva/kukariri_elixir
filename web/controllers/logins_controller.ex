@@ -6,7 +6,11 @@ defmodule Kukariri.LoginsController do
   plug :action
 
   def new(conn, _params) do
-    render conn, "new.html"
+    if is_nil(get_session(fetch_session(conn), :user)) do
+      render conn, "new.html"
+    else
+      redirect conn, to: "/items"
+    end
   end
 
   def create(conn, params) do
@@ -16,9 +20,6 @@ defmodule Kukariri.LoginsController do
       |> render "new"
     else
       conn = fetch_session(conn)
-      #conn = put_session(conn, :user_id, user.id)
-      #conn = put_session(conn, :email, user.email)
-      #conn = put_session(conn, :username, user.username) 
       conn = put_session(conn, :user, user)
       redirect conn, to: "/items" 
     end

@@ -6,7 +6,11 @@ defmodule Kukariri.UsersController do
   plug :action
 
   def new(conn, _params) do
-    render conn, "new.html"
+    if is_nil(get_session(fetch_session(conn), :user)) do
+      render conn, "new.html"
+    else
+      redirect conn, to: "/items"
+    end
   end
 
   def create(conn, params) do
