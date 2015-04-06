@@ -1,5 +1,7 @@
 defmodule Kukariri.Item do
   use Ecto.Model
+  import Ecto.Query
+  alias Kukariri.Item
 
   schema "items" do
     field :title, :string
@@ -20,4 +22,5 @@ defmodule Kukariri.Item do
     |> cast(params, [], ~w(title))
     |> validate_length(:title, min: 1)
   end
+
 end

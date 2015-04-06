@@ -9,4 +9,5 @@ defmodule Kukariri.Login do
       select: user
     Kukariri.Repo.all(query) |> List.first
   end
+
 end

@@ -6,6 +6,13 @@ defmodule Kukariri.Queries do
   alias Kukariri.Contact
   alias Kukariri.ProvidedDate
 
+  def search_item(title) do
+    query = from item in Item,
+            where: like("items.title", ^title),
+            select: item
+    Kukariri.Repo.all(query)
+  end
+
   def item(id) do
     id = String.to_integer(id)
     query = from item in Item,
