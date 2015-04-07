@@ -5,7 +5,7 @@ defmodule Kukariri.SearchItemsController do
   plug :action
 
   def index(conn, _params) do
-    items = Kukariri.Queries.search_item("magnifique")
+    items = Kukariri.Queries.search_item("test")
     render conn, "index.json", items: items 
   end
 end

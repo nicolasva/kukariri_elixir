@@ -45,7 +45,7 @@
               <span class="logo"></span>
             </div>
           </div>
-          <div id='navbar' class='center collapse navbar-collapse'>
+          <div id='navbar' class='collapse navbar-collapse'>
             <form action='/persons/search' method='POST'>
               <div id="prefetch">
                 <input type='text' name='item[title]' class="typeahead" placeholder="Chercher des objets" > 

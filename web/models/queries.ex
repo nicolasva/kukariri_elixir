@@ -8,7 +8,7 @@ defmodule Kukariri.Queries do
 
   def search_item(title) do
     query = from item in Item,
-            where: like("items.title", ^title),
+            where: like(item.title, ^title),
             select: item
     Kukariri.Repo.all(query)
   end
