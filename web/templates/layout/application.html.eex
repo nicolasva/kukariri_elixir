@@ -47,10 +47,8 @@
           </div>
           <div id='navbar' class='collapse navbar-collapse'>
             <form action='/persons/search' method='POST'>
-              <div id="prefetch">
-                <input type='text' name='item[title]' class="typeahead" placeholder="Chercher des objets" > 
-                <button class="btn btn-primary" type="submit" name="item[valid_search]">Rechercher</button>
-              </div>
+              <input type='text' name='item[title]' class="item_title" placeholder="Chercher des objets" > 
+              <button class="btn btn-primary" type="submit" name="item[valid_search]">Rechercher</button>
             </form>
           </div>
         </nav>

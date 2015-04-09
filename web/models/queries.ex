@@ -7,6 +7,7 @@ defmodule Kukariri.Queries do
   alias Kukariri.ProvidedDate
 
   def search_item(title) do
+    title = "%#{title}%"
     query = from item in Item,
             where: like(item.title, ^title),
             select: item
