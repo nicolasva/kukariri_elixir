@@ -1,0 +1,12 @@
+<div class="row">
+  <ul class="list-unstyled" style="">
+    <%= for item <- @items do %>
+      <li class="item-list">
+        <div class="row">
+          <a href='#'><%= item.title %></a>
+          <img class='img_preview_item img-rounded' src='/images/img_items/<%= get_img_preview(item.pictures) %>'>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

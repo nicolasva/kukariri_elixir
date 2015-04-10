@@ -54,6 +54,7 @@ defmodule Kukariri.Router do
     get "/items/:item_id/calendars/provided_dates_list", CalendarsController, :provided_dates_list, as: :calendars
     get "/persons", PersonsController, :index, as: :persons
     get "/items/search_items/index", SearchItemsController, :index, as: :search_items
+    get "/items/search_items/:id", SearchItemsController, :show, as: :search_items
   end
 
   # Other scopes may use custom stacks.

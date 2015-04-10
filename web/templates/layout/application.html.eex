@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="/css/vendors/jquery_file_upload/jquery.fileupload-ui-noscript.css">
     </noscript>
     <link rel="stylesheet" href="/css/phoenix/phoenix.css">
+    <link rel="stylesheet" href="/css/front/search_items/show.css">
   </head>
 
   <body>

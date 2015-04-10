@@ -47,7 +47,7 @@ defmodule Kukariri.ItemsController do
 
   def show(conn, %{"id" => id}) do
    item = Kukariri.Queries.item(id)
-   render conn, "show", item: item
+   render conn, "show.html", item: item
   end
   
   def destroy(conn, %{"id" => id}) do

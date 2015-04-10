@@ -6,9 +6,10 @@ defmodule Kukariri.Queries do
   alias Kukariri.Contact
   alias Kukariri.ProvidedDate
 
-  def search_item(title) do
+  def search_items(title) do
     title = "%#{title}%"
-    query = from item in Item,
+    query = from item in Item, 
+            preload: [:pictures],
             where: like(item.title, ^title),
             select: item
     Kukariri.Repo.all(query)
