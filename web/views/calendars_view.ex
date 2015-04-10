@@ -5,7 +5,6 @@ defmodule Kukariri.CalendarsView do
   def render("provided_dates_list.json", %{provided_dates: provided_dates})  do
     array_provided_date = []
     array_provided_date = array_provided_date ++ get_provided_dates(provided_dates)
-    array_provided_date
   end
 
 
