@@ -3,8 +3,22 @@
     <%= for item <- @items do %>
       <li class="item-list">
         <div class="row">
-          <a href='#'><%= item.title %></a>
-          <img class='img_preview_item img-rounded' src='/images/img_items/<%= get_img_preview(item.pictures) %>'>
+          <div class="col-md-6">
+            <div class="row">
+              <a href='#'><%= item.title %></a>
+            </div>
+            <div class="row">
+              <img class='img_preview_item img-rounded' src='/images/img_items/<%= get_img_preview(item.pictures) %>'>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <a href='#'><%= item.user.email %></a>
+            <%= if disponibility?(item.id) do %>
+              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-success">Disponible pour prêt</a>
+            <%= else %>
+              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-warning">Prêté actuellement</a>
+            <% end %>
+          </div>
         </div>
       </li>
     <% end %>

@@ -9,7 +9,7 @@ defmodule Kukariri.Queries do
   def search_items(title) do
     title = "%#{title}%"
     query = from item in Item, 
-            preload: [:pictures],
+            preload: [:user, :pictures],
             where: like(item.title, ^title),
             select: item
     Kukariri.Repo.all(query)
