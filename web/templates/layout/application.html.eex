@@ -25,6 +25,7 @@
     </noscript>
     <link rel="stylesheet" href="/css/phoenix/phoenix.css">
     <link rel="stylesheet" href="/css/front/search_items/show.css">
+    <link rel="stylesheet" href="/css/front/items/show.css">
   </head>
 
   <body>
@@ -91,5 +92,6 @@
     <script src="/js/front/provided_dates/new.js"></script>
     <script src="/js/front/calendars/fullcalendar.js"></script>
     <script src="/js/front/items/form_search_item.js"></script>
+    <script src="/js/front/items/show.js"></script>
   </body>
 </html>

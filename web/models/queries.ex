@@ -18,6 +18,7 @@ defmodule Kukariri.Queries do
   def item(id) do
     id = String.to_integer(id)
     query = from item in Item,
+            preload: [:user, :pictures],
             where: item.id == ^id,
             select: item
     Kukariri.Repo.all(query) |> List.first

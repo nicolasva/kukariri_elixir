@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-5">
+    <h2>
+      <%= @item.title %>
+    </h2>
+    
+    <div class="row">
+      <div class="col-md-12 picture">
+        <img src="/images/img_items/<%= get_img_preview(@item.pictures) %>"  class="img-rounded picture_first"> 
+      </div>
+      <div class="col-md-12 picture_lists">
+        <ul class="list-unstyled list-inline">
+          <%= for picture <- @item.pictures do %>
+            <img src="/images/img_items/<%= picture.picture_file_name %>" class="img-rounded picture_preview">
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+  </div>
+</div>

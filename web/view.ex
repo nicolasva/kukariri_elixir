@@ -18,4 +18,13 @@ defmodule Kukariri.View do
     provided_date = Kukariri.Queries.picture_with_provided_date?(item_id)
     is_nil(provided_date)
   end
+
+  def get_img_preview(pictures) do
+    picture = pictures |> List.first
+    if is_nil(picture) do
+      "no_image/noImage.jpg"
+    else
+      picture.picture_file_name
+    end
+  end
 end

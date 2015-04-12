@@ -25,6 +25,7 @@ defmodule Kukariri.Router do
     get "/items/:item_id/pictures/new", PicturesController, :new, as: :pictures
     delete "/items/:item_id/pictures/:id", PicturesController, :destroy, as: :destroy
     get "/pages", PageController, :index, as: :pages
+    get "/users/:user_id/items/:id", ItemsController, :show, as: :items
     get "/items/new", ItemsController, :new, as: :items
     get "/items/:id/edit", ItemsController, :edit, as: :items
     delete "/items/:id", ItemsController, :destroy, as: :items

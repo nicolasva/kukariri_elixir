@@ -22,8 +22,8 @@ defmodule Kukariri.ItemsController do
   end
 
   def index(conn, _params) do
-    conn = fetch_session(conn)
-    user = get_session(conn, :user)
+    session = fetch_session(conn)
+    user = get_session(session, :user)
     items = Kukariri.Queries.items_list(user.id)
     render conn, "index.html", items: items
   end
@@ -45,7 +45,7 @@ defmodule Kukariri.ItemsController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id}) do 
    item = Kukariri.Queries.item(id)
    render conn, "show.html", item: item
   end

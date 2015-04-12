@@ -2,24 +2,28 @@
   <ul class="list-unstyled" style="">
     <%= for item <- @items do %>
       <li class="item-list">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <a href='#'><%= item.title %></a>
+        <a href='/users/<%= item.user.email %>/items/<%= item.id %>'>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <%= item.title %>
+              </div>
+              <div class="row">
+                <img class='img_preview_item img-rounded' src='/images/img_items/<%= get_img_preview(item.pictures) %>'>
+              </div>
             </div>
-            <div class="row">
-              <img class='img_preview_item img-rounded' src='/images/img_items/<%= get_img_preview(item.pictures) %>'>
+            <div class="col-md-6">
+              <div class='text-center'>
+                <%= item.user.email %>
+                <%= if disponibility?(item.id) do %>
+                  <span class="btn btn-xs btn-success">Disponible pour prêt</span>
+                <%= else %>
+                  <span class="btn btn-xs btn-warning">Prêté actuellement</span>
+                <% end %>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <a href='#'><%= item.user.email %></a>
-            <%= if disponibility?(item.id) do %>
-              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-success">Disponible pour prêt</a>
-            <%= else %>
-              <a href="/items/<%= item.id %>/contacts" class="btn btn-xs btn-warning">Prêté actuellement</a>
-            <% end %>
-          </div>
-        </div>
+        </a>
       </li>
     <% end %>
   </ul>
