@@ -75,7 +75,6 @@
     <script src="/js/vendors/jquery_file_upload/JavaScript-Load-Image/load-image.all.min.js"></script>
     <script src="/js/vendors/jquery_file_upload/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/js/vendors/typeahead/typeahead.bundle.js"></script>
     <script src="/js/vendors/jquery_file_upload/javascript-Blueimp-Gallery/jquery.blueimp-gallery.min.js"></script>
     <script src="/js/vendors/jquery_file_upload/jquery.iframe-transport.js"></script>
     <script src="/js/vendors/jquery_file_upload/jquery.fileupload.js"></script>

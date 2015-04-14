@@ -18,5 +18,27 @@
     </div>
   </div>
   <div class="col-md-7">
+    <h2><%= @item.user.email %></h2>
+    <form id="item_provided_date" class="form-horizontal" action="/users/<%= @item.user.email %>/items/<%= @item.id %>/provided_dates" method="POST">
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">De</label>
+        <div class="col-sm-6">
+          <input type="text" id="provided_date_date_at" class="form-control" placeholder="dd/mm/yyy" name="provided_date[date_at]" required="required">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">A</label>
+        <div class="col-sm-6">
+          <input type="text" id="provided_date_date_to" class="form-control" placeholder="dd/mm/yyyy" name="provided_date[date_to]" required="required">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="text-center col-sm-10">
+          <button class="btn btn-warning" type="submit" name="provided_date[submit_provided_date]">Proposer cette date à <%= @item.user.email %></button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

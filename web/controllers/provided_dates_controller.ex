@@ -33,13 +33,17 @@ defmodule Kukariri.ProvidedDatesController do
     end
   end
 
-  def create(conn, %{"item_id" => item_id, "contact_id" => contact_id, "provided_date" => params}) do
+  def create(conn, %{"user_id" => user_id, item_id" => item_id, "contact_id" => contact_id, "provided_date" => params}) do
     if is_nil(params["date_to_activation"]) do
       date_to_activation = false
     else
       date_to_activation = true
     end
-    provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, contact_id: String.to_integer(contact_id), item_id: String.to_integer(item_id)}
+    if is_nil(user_id) do
+      provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, contact_id: String.to_integer(contact_id), item_id: String.to_integer(item_id)}
+    else
+      provided_date = %Kukariri.ProvidedDate{date_at: format_date(params["date_at"]), date_to: format_date(params["date_to"]), date_to_activation: date_to_activation, user_id: String.to_integer(user_id), item_id: String.to_integer(item_id)}
+    end
     changeset = Kukariri.ProvidedDate.changeset(params, :create)
     if changeset.valid? do
       provided_date = Kukariri.Repo.insert(provided_date)
