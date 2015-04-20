@@ -21,7 +21,7 @@ defmodule Kukariri.LoginsController do
     else
       conn = fetch_session(conn)
       conn = put_session(conn, :user, user)
-      redirect conn, to: "/items" 
+      redirect conn, to: "/items"
     end
   end
 

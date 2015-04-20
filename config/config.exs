@@ -22,6 +22,7 @@ config :logger, :console,
 config :kukariri, Kukariri.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "kukariri",
-  hostname: "localhost"
-
+  hostname: "localhost",
+  username: "nicolas",
+  password: "infonies"
 import_config "#{Mix.env}.exs"

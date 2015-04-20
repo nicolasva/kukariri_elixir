@@ -1,24 +1,15 @@
 defmodule Kukariri.Repo.Migrations.AddTablePictures do
   use Ecto.Migration
 
-  def up do
-    """
-      CREATE TABLE Pictures(
-        id serial primary key,
-        picture_file_name varchar(255) not null,
-        picture_content_type varchar(255),
-        picture_file_size integer,
-        picture_updated_at timestamp,
-        position integer not null default 0,
-        item_id integer references items,
-        type_id integer references types,
-        created_at timestamp,
-        updated_at timestamp
-      )
-    """
-  end
-
-  def down do
-    "DROP TABLE PICTURES"
+  def change do
+    create table(:pictures) do
+      add :picture_file_name, :string, null: false
+      add :picture_content_type, :string
+      add :picture_file_size, :integer
+      add :picture_updated_at, :datetime
+      add :position, :integer, null: false, default: 0
+      add :item_id, references(:items)
+      add :type_id, references(:types)
+    end
   end
 end

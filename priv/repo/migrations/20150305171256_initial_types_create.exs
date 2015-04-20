@@ -1,20 +1,11 @@
 defmodule Kukariri.Repo.Migrations.InitialTypesCreate do
   use Ecto.Migration
 
-  def up do
-    """
-      CREATE TABLE types(
-        id serial primary key,
-        descriptif varchar(255) not null,
-        item_id integer not null references items,
-        contact_id integer references contacts,
-        created_at timestamp,
-        updated_at timestamp
-      )
-    """
-  end
-
-  def down do
-    "DROP TABLE TYPES"
+  def change do
+    create table(:types) do
+      add :descriptif, :string, null: false
+      add :item_id, references(:items)
+      add :contact_id, references(:contacts)
+    end
   end
 end

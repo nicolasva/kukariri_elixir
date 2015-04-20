@@ -47,6 +47,8 @@ defmodule Kukariri.Router do
     delete "/items/:item_id/contacts/:id", ContactsController, :destroy, as: :contacts
     get "/items/:item_id/contacts/:id/delete", ContactsController, :destroy, as: :contacts
     get "/items/:item_id/contacts/:contact_id/provided_dates/new", ProvidedDatesController, :new, as: :provided_dates
+    post "/users/:user_id/items/:item_id/provided_dates", ProvidedDatesController, :create, as: :provided_dates
+    get "/users/:user_id/items/:item_id/reservations_lists", ReservationsListsController, :index, as: :reservations_lists
     post "/items/:item_id/contacts/:contact_id/provided_dates", ProvidedDatesController, :create, as: :provided_dates
     get "/items/:item_id/contacts/:contact_id/provided_dates/:id/edit", ProvidedDatesController, :edit, as: :provided_dates
     put "/items/:item_id/contacts/:contact_id/provided_dates/:id", ProvidedDatesController, :update, as: :provided_dates

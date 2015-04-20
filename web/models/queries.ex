@@ -41,6 +41,15 @@ defmodule Kukariri.Queries do
     Kukariri.Repo.all(query) |> List.first
   end
 
+  def provided_dates_all(item_id) do
+    item_id = String.to_integer(item_id)
+    query = from provided_date in ProvidedDate,
+      where: provided_date.item_id == ^item_id,
+      select: provided_date
+
+    Kukariri.Repo.all(query)
+  end
+
   def contact_provided_date_lent?(contact_id, item_id) do 
     time_today = elem(Ecto.DateTime.dump(Ecto.DateTime.local()), 1)
     query = from provided_date in ProvidedDate,

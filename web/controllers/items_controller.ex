@@ -49,7 +49,7 @@ defmodule Kukariri.ItemsController do
    item = Kukariri.Queries.item(id)
    render conn, "show.html", item: item
   end
-  
+
   def destroy(conn, %{"id" => id}) do
     item = Kukariri.Queries.item(id)
     Kukariri.Repo.delete(item) 

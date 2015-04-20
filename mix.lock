@@ -10,4 +10,5 @@
   "poolboy": {:hex, :poolboy, "1.4.2"},
   "postgrex": {:hex, :postgrex, "0.8.0"},
   "ranch": {:hex, :ranch, "1.0.0"},
-  "sass_elixir": {:hex, :sass_elixir, "0.0.1"}}
+  "sass_elixir": {:hex, :sass_elixir, "0.0.1"},
+  "timex": {:hex, :timex, "0.13.4"}}

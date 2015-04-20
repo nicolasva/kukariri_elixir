@@ -29,7 +29,8 @@ defmodule Kukariri.Mixfile do
      {:sass_elixir, "~> 0.0.1"},
      {:inflex, "~> 1.0.0"},
      {:plug, "~> 0.7"},
-     {:mogrify, "~> 0.1"}
+     {:mogrify, "~> 0.1"},
+     {:timex, "~> 0.13.4"}
     ]
   end
 end
