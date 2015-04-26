@@ -3,8 +3,7 @@ defmodule Kukariri.ReservationsListsView do
   use Kukariri.View
 
   def render("index.json", %{provided_dates: provided_dates}) do
-   array_provided_date_list = []
-   array_provided_date_list = array_provided_date_list ++ provided_dates_get(provided_dates)
+    provided_dates_get(provided_dates)
   end
 
   defp provided_dates_get(provided_dates) do
@@ -36,7 +35,7 @@ defmodule Kukariri.ReservationsListsView do
         end
       else
         for n <- day_to..day_at do
-          date = {{year, month, n}, {0, 0, 0, 0}}
+          date = {{year_to, month_to, n}, {0, 0, 0, 0}}
           if verify_date?(date) do
             date_format(date)
           end

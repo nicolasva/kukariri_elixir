@@ -92,5 +92,6 @@
     <script src="/js/front/calendars/fullcalendar.js"></script>
     <script src="/js/front/items/form_search_item.js"></script>
     <script src="/js/front/items/show.js"></script>
+    <script src="/js/front/provided_dates/new.js"></script>
   </body>
 </html>
